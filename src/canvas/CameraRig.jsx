@@ -36,15 +36,15 @@ position and rotation of a 3D model in a React component. */
     }
 
     // set model camera position
-    easing.damp3(state.camera.position, targetPosition, 0.25, delta);
+    // easing.damp4(state.camera.position, targetPosition, 0.2, delta);
 
     // set the model rotation smoothly
-    easing.dampE(
-      group.current.rotation,
-      [state.pointer.y / 7, -state.pointer.x / 2, 0],
-      0.0001,
-      delta
-    );
+    // easing.dampE(
+    //   group.current.rotation,
+    //   [state.pointer.y / 7, -state.pointer.x / 2, 0],
+    //   0.0001,
+    //   delta
+    // );
   });
 
   return <group ref={group}>{children}</group>;

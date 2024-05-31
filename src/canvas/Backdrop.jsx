@@ -34,7 +34,7 @@ const Backdrop = () => {
       ref={shadows}
       temporal={true} // smooth out the edges of the shadows over time
       frames={60}
-      alphaTest={0.85} // Transparency of the shadows
+      alphaTest={0.84} // Transparency of the shadows
       scale={10}
       rotation={[Math.PI / 2, 0, 0]}
       position={[0, 0, -0.14]}
