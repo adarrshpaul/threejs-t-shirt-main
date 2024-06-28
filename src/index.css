@@ -41,7 +41,7 @@ html {
 }
 
 .filtertabs-container {
-  @apply z-50  absolute bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
+  @apply z-50  absolute bottom-0 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
 }
 
 .filepicker-container {
