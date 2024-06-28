@@ -18,30 +18,33 @@ const FilePicker = ({ file, setFile, readFile }) => {
           accept="image/*"
           /* The `onChange` event handler in the `input` element is responsible for updating the `file` state
             when a file is selected by the user. */
-          onChange={(e) => setFile(e.target.files[0])}
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+          }}
         />
         <label htmlFor="file-upload" className="filepicker-label">
-          Upload File
+          Upload LOGO
         </label>
 
+
         <p className="mt-2 text-gray-500 text-xs truncate">
-          {file === "" ? "No file selected" : file.name}
+          {file === "" ? "No file selected" : "logo image updated"}
         </p>
       </div>
 
       <div className="mt-4 flex flex-wrap gap-3">
         <CustomButton
           type="outline"
-          title="Logo"
+          title="Print your Tshirt"
           handleClick={() => readFile("logo")}
           customStyles="text-xs"
         />
-        <CustomButton
+        {/* <CustomButton
           type="filled"
           title="Full"
           handleClick={() => readFile("full")}
           customStyles="text-xs"
-        />
+        /> */}
       </div>
     </div>
   );

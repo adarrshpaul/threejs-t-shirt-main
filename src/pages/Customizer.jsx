@@ -27,16 +27,16 @@ const Customizer = () => {
 
   // show tab content depending on the activeTab
   const generateTabContent = () => {
-    switch (activeEditorTab) {
-      case "colorpicker":
-        return <ColorPicker />;
 
-      case "filepicker":
-        return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
+    if (activeEditorTab === "colorpicker") {
+      return <ColorPicker />;
+    } else if (activeEditorTab === "filepicker") {
 
-      default:
-        return null;
+      return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
+    } else {
+      return null;
     }
+
   };
 
   /**
@@ -46,7 +46,6 @@ const Customizer = () => {
     const decalType = DecalTypes[type];
 
     state[decalType.stateProperty] = result;
-
     if (!activeFilterTab[decalType.filterTab]) {
       handleActiveFilterTab(decalType.filterTab);
     }
@@ -95,11 +94,11 @@ filter tab. It takes a `tabName` parameter, which represents the name of the sel
           {/* left menu tabs */}
           <motion.div
             key="custom"
-            className="absolute top-0 left-0 z-10"
-            {...slideAnimation("left")}
+            className="colourtabs-container"
+            {...slideAnimation("bottom")}
           >
-            <div className="flex items-center min-h-screen">
-              <div className="editortabs-container tabs">
+            <div className="">
+              <div className="flex space-x-2 justify-center">
                 {EditorTabs.map((tab) => (
                   <Tab
                     key={tab.name}
@@ -107,29 +106,18 @@ filter tab. It takes a `tabName` parameter, which represents the name of the sel
                     handleClick={() => setActiveEditorTab(tab.name)}
                   />
                 ))}
+                <div className="absolute top-14">
+                  {generateTabContent()}
+                </div>
 
-                {generateTabContent()}
               </div>
             </div>
           </motion.div>
 
-          {/* Go back button */}
-          <motion.div
-            className="absolute z-10 top-5 right-5"
-            {...fadeAnimation}
-          >
-            <CustomButton
-              type="filled"
-              title="Go Back"
-              handleClick={() => (state.intro = true)}
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
-            />
-          </motion.div>
-          
           {/* filter tabs */}
           <motion.div
             className="filtertabs-container"
-            {...slideAnimation("up")}
+            {...fadeAnimation}
           >
             {FilterTabs.map((tab) => (
               <Tab
@@ -141,18 +129,19 @@ filter tab. It takes a `tabName` parameter, which represents the name of the sel
               />
             ))}
 
-            <button className="download-btn" onClick={downloadCanvasToImage}>
+            {/* <button className="download-btn" onClick={downloadCanvasToImage}>
               <img
                 src={download}
                 alt="Download Image"
                 className="w-3/5 h-3/5 object-contain"
               />
-            </button>
+            </button> */}
 
           </motion.div>
         </>
-      )}
-    </AnimatePresence>
+      )
+      }
+    </AnimatePresence >
   );
 };
 

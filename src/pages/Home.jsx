@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <AnimatePresence>
 
-      <motion.section className="home" {...slideAnimation('left')}>
+      <motion.section className="home" {...slideAnimation('down')}>
       </motion.section>
 
     </AnimatePresence>

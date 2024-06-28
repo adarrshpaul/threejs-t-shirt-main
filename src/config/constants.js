@@ -7,19 +7,19 @@ export const EditorTabs = [
   },
   {
     name: "filepicker",
-    icon: fileIcon,
+    icon: logoShirt,
   }
 ];
 
 export const FilterTabs = [
   {
     name: "logoShirt",
-    icon: logoShirt,
-  },
-  {
-    name: "stylishShirt",
     icon: stylishShirt,
   },
+  // {
+  //   name: "stylishShirt",
+  //   icon: stylishShirt,
+  // },
 ];
 
 export const DecalTypes = {

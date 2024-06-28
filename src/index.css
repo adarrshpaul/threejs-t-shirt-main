@@ -16,7 +16,7 @@ html {
 }
 
 .app {
-  @apply relative w-full h-screen overflow-hidden;
+  @apply relative w-full h-screen overflow-x-hidden;
 }
 
 .home {
@@ -35,16 +35,17 @@ html {
   @apply w-14 h-14 flex justify-center items-center rounded-full glassmorphism cursor-pointer outline-none;
 }
 
-.editortabs-container {
-  @apply glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4;
+
+.colourtabs-container {
+  @apply z-50 absolute p-2  top-5 right-0 left-0 w-full flex-row justify-center items-center flex-wrap gap-2;
 }
 
 .filtertabs-container {
-  @apply absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
+  @apply z-50  absolute bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
 }
 
 .filepicker-container {
-  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
+  @apply absolute left-full glassmorphism p-2 flex flex-col rounded-md;
 }
 
 .filepicker-label {
@@ -52,7 +53,7 @@ html {
 }
 
 .tab-btn {
-  @apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
+  @apply w-10 h-10 flex justify-center items-center cursor-pointer select-none;
 }
 
 .glassmorphism {

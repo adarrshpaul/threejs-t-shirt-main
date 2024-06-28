@@ -13,11 +13,38 @@ import state from "../store";
  */
 const CameraRig = ({ children }) => {
   const group = useRef();
+  const snap = useSnapshot(state);
 
   /* Using the `useFrame` hook from the `@react-three/fiber` library to update the
 position and rotation of a 3D model in a React component. */
   useFrame((state, delta) => {
+    // console.log(state.camera.position);
+    const isBreakpoint = window.innerWidth <= 1260;
+    const isMobile = window.innerWidth <= 600;
 
+    // set the initial position of the model
+    let targetPosition = [-0.4, 0, 2];
+    if (snap.intro) {
+      if (isBreakpoint) targetPosition = [0, 0, 2];
+      if (isMobile) targetPosition = [0, 0.2, 2.5];
+    } else {
+      if (isMobile) {
+        targetPosition = [0, 0, 2.5];
+      } else {
+        targetPosition = [0, 0, 2];
+      }
+    }
+
+    // set model camera position
+    // easing.damp4(state.camera.position, targetPosition, 0.2, delta);
+
+    // set the model rotation smoothly
+    // easing.dampE(
+    //   group.current.rotation,
+    //   [state.pointer.y / 7, -state.pointer.x / 2, 0],
+    //   0.0001,
+    //   delta
+    // );
   });
 
   return <group ref={group}>{children}</group>;
